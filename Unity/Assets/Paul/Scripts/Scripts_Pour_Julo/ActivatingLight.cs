@@ -66,6 +66,7 @@ public class ActivatingLight : MonoBehaviour
 
             }
         }
+        StopCoroutine(SpawnLightWithTime());
     }
 
 }
