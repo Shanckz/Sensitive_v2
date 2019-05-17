@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Alex/Example_Interactions Alex.unity
+  - enabled: 0
+    path: Assets/ProjetDeDepart/Alex/Example_Interactions Alex.unity
     guid: e909708e24c89654fbf9ff6816689020
+  - enabled: 1
+    path: Assets/Scenes/Scene_pourjulien.unity
+    guid: 893aed96cbb20fe4bb9b8de93f015f43
   m_configObjects: {}
