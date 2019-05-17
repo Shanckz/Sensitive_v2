@@ -18,7 +18,6 @@ MonoBehaviour:
   - {fileID: 114437462850328160}
   - {fileID: 114438457809389048}
   - {fileID: 114210751929947678}
-  - {fileID: 114433523928200448}
 --- !u!114 &114210751929947678
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1365,42 +1364,6 @@ MonoBehaviour:
   vignette:
     overrideState: 1
     value: 0.4
---- !u!114 &114433523928200448
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3f6f3f7c722b4544b97e3c75840aa33, type: 3}
-  m_Name: AutoExposure
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  filtering:
-    overrideState: 1
-    value: {x: 50, y: 95}
-  minLuminance:
-    overrideState: 1
-    value: 0
-  maxLuminance:
-    overrideState: 1
-    value: 0
-  keyValue:
-    overrideState: 0
-    value: 1
-  eyeAdaptation:
-    overrideState: 0
-    value: 0
-  speedUp:
-    overrideState: 0
-    value: 2
-  speedDown:
-    overrideState: 0
-    value: 1
 --- !u!114 &114437462850328160
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1489,7 +1452,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.73
+    value: 0.4
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1537,7 +1500,7 @@ MonoBehaviour:
     value: 6
   aperture:
     overrideState: 1
-    value: 3
+    value: 4
   focalLength:
     overrideState: 1
     value: 59
