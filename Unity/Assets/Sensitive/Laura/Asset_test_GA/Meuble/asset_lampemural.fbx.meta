@@ -11,7 +11,12 @@ ModelImporter:
     2300000: asset_lampemural
     3300000: asset_lampemural
     4300000: asset_lampemural
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultPolygonShader
+    second: {fileID: 2100000, guid: 05dc85d927fc8274498acda4c3758188, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

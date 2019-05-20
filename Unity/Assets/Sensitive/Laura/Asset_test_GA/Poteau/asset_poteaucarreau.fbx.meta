@@ -11,7 +11,12 @@ ModelImporter:
     2300000: asset_poteau_carrelage
     3300000: asset_poteau_carrelage
     4300000: asset_poteau_carrelage
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: f82a7f359b7eea04fbe6b69f74dead55, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

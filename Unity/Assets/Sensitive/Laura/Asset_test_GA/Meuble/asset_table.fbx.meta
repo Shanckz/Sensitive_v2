@@ -11,7 +11,12 @@ ModelImporter:
     2300000: asset_tableoperatoin1
     3300000: asset_tableoperatoin1
     4300000: asset_tableoperatoin1
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 508e697563234ef468de603d2e1eda75, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

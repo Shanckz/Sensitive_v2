@@ -65,7 +65,12 @@ ModelImporter:
     2300000: rail_module1
     3300000: rail_module1
     4300000: rail_module1
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: a21f34af34978a44591b17bef0b144eb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
