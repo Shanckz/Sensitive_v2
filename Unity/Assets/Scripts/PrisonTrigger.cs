@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TimedLight : MonoBehaviour
+public class PrisonTrigger : MonoBehaviour
 
 {
 
@@ -12,7 +12,11 @@ public class TimedLight : MonoBehaviour
     [SerializeField] private float offTime = 0;
     [SerializeField] private float timer = 5.0f;
     //[SerializeField] string PlayerTag;
-    [SerializeField] UnityEvent m_event;
+
+    [Header("Objet a activer / désactiver")]
+    public GameObject objectToDisable;
+    public GameObject objectToAble;
+    public float TimerObjet;
 
     private void Update()
     {
@@ -23,6 +27,11 @@ public class TimedLight : MonoBehaviour
             if (offTime > timer)
             {
                 _light.SetActive(true);
+            }
+            if (offTime > TimerObjet)
+            {
+                objectToDisable.SetActive(false);
+                objectToAble.SetActive(true);
             }
         }
     }
