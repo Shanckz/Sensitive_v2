@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TimedLight : MonoBehaviour
 
@@ -10,6 +11,8 @@ public class TimedLight : MonoBehaviour
     [SerializeField] private bool actived = false;
     [SerializeField] private float offTime = 0;
     [SerializeField] private float timer = 5.0f;
+    //[SerializeField] string PlayerTag;
+    [SerializeField] UnityEvent m_event;
 
     private void Update()
     {
@@ -26,7 +29,7 @@ public class TimedLight : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && !actived)
+        if(other.CompareTag(tag) && !actived)
         {
             _light.SetActive(false);
             actived = true;
