@@ -16,6 +16,14 @@ TagManager:
   - Photo_OK
   - ExcludeTeleport
   - TeleportIgnore
+  - PlayerFoot
+  - Saucers
+  - SnapCylinder
+  - SnapCube
+  - Torso
+  - Head
+  - Arm
+  - Leg
   layers:
   - Default
   - TransparentFX
@@ -30,7 +38,7 @@ TagManager:
   - Interactable
   - Hand
   - HandDetector
-  - 
+  - AI
   - 
   - 
   - 

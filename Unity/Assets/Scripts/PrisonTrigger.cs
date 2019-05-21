@@ -38,7 +38,7 @@ public class PrisonTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(tag) && !actived)
+        if(other.CompareTag("PlayerFoot") && !actived)
         {
             _light.SetActive(false);
             actived = true;

@@ -39,7 +39,7 @@ public class ActivatingLight : MonoBehaviour
     bool oneTime;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(tag) && !oneTime)
+        if (other.CompareTag(PlayerTag) && !oneTime)
         {
             SpawnLights();
             oneTime = true;
