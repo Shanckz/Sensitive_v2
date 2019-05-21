@@ -1088,10 +1088,12 @@ namespace VRTK
                 if (customFootColliderContainer != null)
                 {
                     footColliderContainer = InstantiateColliderContainer(customFootColliderContainer, FOOT_COLLIDER_CONTAINER_NAME, bodyColliderContainer.transform);
+                    footColliderContainer.gameObject.tag = "PlayerFoot";
                 }
                 else
                 {
                     footColliderContainer = CreateColliderContainer(FOOT_COLLIDER_CONTAINER_NAME, bodyColliderContainer.transform);
+                    footColliderContainer.gameObject.tag = "PlayerFoot";
                     footColliderContainer.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
                 }
 
