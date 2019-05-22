@@ -20,7 +20,10 @@ public class Rodeur1 : MonoBehaviour
     [SerializeField]
     protected GameObject death;
     protected bool wasInactive;
+    protected bool wasActive;
     public bool unactive;
+    protected Vector3 posPlayer;
+    protected GameObject footPlayer;
     #endregion
 
     protected enum etat
@@ -37,18 +40,26 @@ public class Rodeur1 : MonoBehaviour
         active = false;
         Agent = GetComponent<NavMeshAgent>();
         wasInactive = false;
+        wasActive = false;
     }
 
     void Update ()
     {
-        if(wasInactive == false)
+        if (wasActive == false)
+        {
+            if (activation.activeInHierarchy == true)
+            {
+                wasActive = true;
+            }
+        }
+        if(wasInactive == false && wasActive == true)
         {
             if(activation.activeInHierarchy == false)
             {
                 wasInactive = true;
             }
         }
-        if(unactive == false && Agent.isStopped == false && wasInactive)
+        if(unactive == false && wasInactive)
         {
             Activation();
             if (active == true)
@@ -66,11 +77,9 @@ public class Rodeur1 : MonoBehaviour
     {
         if (active == false)
         {
-            if (activation.activeInHierarchy == true)
-            {
-                active = true;
-                myEtat = etat.firstActivation;
-            }
+            active = true;
+            myEtat = etat.firstActivation;
+            footPlayer = GameObject.FindGameObjectWithTag("PlayerFoot");
         }
     }
 
@@ -114,12 +123,13 @@ public class Rodeur1 : MonoBehaviour
     void PoursuitePlayer()
     {
         Agent.updateRotation = true;
-        Agent.destination = player.transform.position;
+        posPlayer = footPlayer.transform.position;
+        Agent.destination = posPlayer;
         Agent.stoppingDistance = killDistance;
         if (Agent.hasPath && Agent.remainingDistance < killDistance)
         {
-            Debug.Log(Agent.remainingDistance);
             Debug.Log("Le joueur est mort");
+            DeathManager.deathPlayer = true;
         }
     }
 }

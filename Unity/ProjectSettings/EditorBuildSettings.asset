@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/ProjetDeDepart/Alex/Example_Interactions Alex.unity
     guid: e909708e24c89654fbf9ff6816689020
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene_pourjulien.unity
     guid: 893aed96cbb20fe4bb9b8de93f015f43
+  - enabled: 1
+    path: Assets/Scenes/Scene_pourservan.unity
+    guid: 263ab29993770e948a110b45c8cb0fab
   m_configObjects: {}
