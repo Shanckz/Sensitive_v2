@@ -8,6 +8,12 @@ public class PrisonTrigger : MonoBehaviour
 {
 
     public GameObject _light;
+    [SerializeField]
+    protected GameObject meshLight;
+    [SerializeField]
+    protected Material lightMaterialwithEmissive;
+    [SerializeField]
+    protected Material lightMaterialwithoutEmissive;
     [SerializeField] private bool actived = false;
     [SerializeField] private float offTime = 0;
     [SerializeField] private float timer = 5.0f;
@@ -20,13 +26,14 @@ public class PrisonTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (!_light.activeSelf)
+        if (!_light.activeSelf && actived)
         {
             offTime += Time.deltaTime;
 
             if (offTime > timer)
             {
                 _light.SetActive(true);
+                meshLight.GetComponent<MeshRenderer>().material = lightMaterialwithEmissive;
             }
             if (offTime > TimerObjet)
             {
@@ -41,6 +48,7 @@ public class PrisonTrigger : MonoBehaviour
         if(other.CompareTag("PlayerFoot") && !actived)
         {
             _light.SetActive(false);
+            meshLight.GetComponent<MeshRenderer>().material = lightMaterialwithoutEmissive;
             actived = true;
         }
     }

@@ -14,15 +14,11 @@ public class Rodeur1 : MonoBehaviour
     [SerializeField]
     private float durationTimer = 2f;
     [SerializeField]
-    protected GameObject player;
-    [SerializeField]
     protected float killDistance = 1.0f;
-    [SerializeField]
-    protected GameObject death;
     protected bool wasInactive;
     protected bool wasActive;
     public bool unactive;
-    protected Vector3 posPlayer;
+    protected Transform posPlayer;
     protected GameObject footPlayer;
     #endregion
 
@@ -49,6 +45,7 @@ public class Rodeur1 : MonoBehaviour
         {
             if (activation.activeInHierarchy == true)
             {
+                Debug.Log("WasActive");
                 wasActive = true;
             }
         }
@@ -56,6 +53,7 @@ public class Rodeur1 : MonoBehaviour
         {
             if(activation.activeInHierarchy == false)
             {
+                Debug.Log("WasInactive");
                 wasInactive = true;
             }
         }
@@ -107,7 +105,7 @@ public class Rodeur1 : MonoBehaviour
     {
         Agent.Warp(firstPos.transform.position);
         Agent.updateRotation = false;
-        Agent.transform.LookAt(player.transform.position);
+        Agent.transform.LookAt(footPlayer.transform);
         myEtat = etat.attente;
         beginTimer = Time.time;
     }
@@ -123,10 +121,10 @@ public class Rodeur1 : MonoBehaviour
     void PoursuitePlayer()
     {
         Agent.updateRotation = true;
-        posPlayer = footPlayer.transform.position;
-        Agent.destination = posPlayer;
+        posPlayer = footPlayer.transform;
+        Agent.SetDestination(posPlayer.position);
         Agent.stoppingDistance = killDistance;
-        if (Agent.hasPath && Agent.remainingDistance < killDistance)
+        if (Agent.hasPath && Agent.remainingDistance < killDistance && DeathManager.deathPlayer == false)
         {
             Debug.Log("Le joueur est mort");
             DeathManager.deathPlayer = true;
