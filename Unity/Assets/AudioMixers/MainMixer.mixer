@@ -78,7 +78,7 @@ AudioMixerGroupController:
   m_Pitch: fa64be0ac1f81a14e82ed5d662838a1b
   m_Effects:
   - {fileID: 244345301431744188}
-  - {fileID: 244083872075090428}
+  - {fileID: 244938706940967204}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -100,29 +100,6 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
---- !u!244 &244083872075090428
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_EffectID: dbf473c2816fc4e4a82932c8cc98ce80
-  m_EffectName: Echo
-  m_MixLevel: 679fd22c8e315454692a8e9081513c37
-  m_Parameters:
-  - m_ParameterName: Delay
-    m_GUID: 8e35246d7c062ff479e1edc3cf2ade57
-  - m_ParameterName: Decay
-    m_GUID: 63969a75c1a895048929a3177a89a673
-  - m_ParameterName: Max channels
-    m_GUID: 0319999e1d76d7e41b8b725c6ff1f10a
-  - m_ParameterName: Drymix
-    m_GUID: 04aac483792035c459fa6921af8a3344
-  - m_ParameterName: Wetmix
-    m_GUID: e78d50cd680a54248922ae0f9a1615c3
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
 --- !u!244 &244345301431744188
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -146,6 +123,21 @@ AudioMixerEffectController:
   m_EffectName: Attenuation
   m_MixLevel: 0acabc5d42f31d94a86ac6a003725956
   m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &244938706940967204
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: de7c9dc935dcbb0438a4bef4e5aa2e88
+  m_EffectName: Distortion
+  m_MixLevel: df4dca92169a67246b158d13b5ee0e3a
+  m_Parameters:
+  - m_ParameterName: Level
+    m_GUID: f6dd31df42c25164398efa5b5bee7763
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
