@@ -17,7 +17,7 @@ public class Rodeur1 : MonoBehaviour
     protected float killDistance = 1.0f;
     protected bool wasInactive;
     protected bool wasActive;
-    public bool unactive;
+    public static bool unactiveRodeur1;
     protected Transform posPlayer;
     protected GameObject footPlayer;
     #endregion
@@ -32,7 +32,7 @@ public class Rodeur1 : MonoBehaviour
 
     private void Start()
     {
-        unactive = false;
+        unactiveRodeur1 = false;
         active = false;
         Agent = GetComponent<NavMeshAgent>();
         wasInactive = false;
@@ -57,7 +57,7 @@ public class Rodeur1 : MonoBehaviour
                 wasInactive = true;
             }
         }
-        if(unactive == false && wasInactive)
+        if(unactiveRodeur1 == false && wasInactive)
         {
             Activation();
             if (active == true)
@@ -65,9 +65,9 @@ public class Rodeur1 : MonoBehaviour
                 SelectEtat();
             }
         }
-        if(unactive)
+        if(unactiveRodeur1)
         {
-            gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
 	}
 
@@ -95,7 +95,7 @@ public class Rodeur1 : MonoBehaviour
         {
             PoursuitePlayer();
         }
-        if(unactive == true)
+        if(unactiveRodeur1 == true)
         {
             gameObject.SetActive(false);
         }

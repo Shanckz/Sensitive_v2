@@ -124,8 +124,6 @@
                 //ovrCamera.rotation = Quaternion.Euler(lastDirection);
                 //ovrCamera.rotation = Quaternion.Euler(0, lastDirection.y, 0);
                 haveDirection = false;
-                Debug.Log(lastDirection);
-                Debug.Log("Apply direction ok");
             }
             //_controllerEvents.GetTouchpadAxis
             //directionIndicator.GetRotation();

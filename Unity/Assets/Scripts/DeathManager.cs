@@ -35,7 +35,6 @@ public class DeathManager : MonoBehaviour
             if (transparency >= 0)
             {
                 image.color = startCanvasColor;
-                Debug.Log(image.color + "Start");
                 transparency -= Time.deltaTime;
                 startCanvasColor = new Color(0, 0, 0, transparency);
                 image.color = startCanvasColor;
@@ -53,7 +52,6 @@ public class DeathManager : MonoBehaviour
             if(transparency <= 1)
             {
                 image.color = couleurCanvesDeath;
-                Debug.Log(image.color + "Death");
                 transparency += Time.deltaTime;
                 couleurCanvesDeath = new Color(0, 0, 0, transparency);
                 image.color = couleurCanvesDeath;
