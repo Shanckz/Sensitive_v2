@@ -1,0 +1,61 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class OneShotSoundGenerator : MonoBehaviour {
+
+    [Header("Sounds array")]
+    [SerializeField] OneShotSound[] m_oneShotSounds = new OneShotSound[3];
+
+    //OneShotSound m_oneShotSound = new OneShotSound();
+    [System.Serializable]
+    public class OneShotSound
+    {
+        [Range (0, 100)] public float m_percentage = 50;
+        public GameObject[] m_sounds = new GameObject[1];
+    }
+
+    [Header("Timers")]
+    [SerializeField] float m_minTimer = 5;
+    [SerializeField] float m_maxTimer = 10;
+
+    private void Start()
+    {
+        StartCoroutine(WaitForNewSound());
+    }
+
+    IEnumerator WaitForNewSound()
+    {
+        float i = NextSound();
+        Debug.Log("New sound in: " + i);
+        yield return new WaitForSeconds(i);
+        Debug.Log("NEW SOUND");
+        StartSound();
+    }
+
+    private void StartSound()
+    {
+
+        StartCoroutine(WaitForNewSound());
+    }
+
+    private float NextSound()
+    {
+        return Random.Range(m_minTimer, m_maxTimer);
+    }
+
+    private int ChoseSoundType()
+    {
+        float f = Random.Range(0, 100);
+        if(f < m_oneShotSounds[0].m_percentage)
+        {
+            return 0;
+        }
+        else if (f < m_oneShotSounds[0].m_percentage)
+        {
+            return 1;
+        }
+
+    }
+
+}

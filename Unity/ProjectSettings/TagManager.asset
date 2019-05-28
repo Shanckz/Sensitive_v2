@@ -24,6 +24,7 @@ TagManager:
   - Head
   - Arm
   - Leg
+  - PlayerNeck
   layers:
   - Default
   - TransparentFX

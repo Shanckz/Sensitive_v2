@@ -25,6 +25,7 @@ public class SenseManager : MonoBehaviour {
 		Hear
 	}
 	[SerializeField] bool m_nextSenseIsSeeIfIStartWithNothingSense = true;
+    [SerializeField] float m_timerToChangeSense = 1;
 
 	[Header("Post processing")]
 	[SerializeField] GameObject m_seePostProcessing;
@@ -36,6 +37,9 @@ public class SenseManager : MonoBehaviour {
 
     [Header("Ambiance sound")]
 	[SerializeField] AudioSource[] m_ambianceMusic;
+
+    [Header("Animators")]
+    [SerializeField] Animator m_eyesAnimator;
 
 #region Encapsulate
 	public AudioMixerGroup HearAudioMixer
@@ -103,31 +107,47 @@ public class SenseManager : MonoBehaviour {
 	}
 
 	public void ChangeSense(){
+        StartCoroutine(ChangeSenseTimer());
+        m_eyesAnimator.SetTrigger("Go");
+    }
 
-		m_myActualSenseIsSee =! m_myActualSenseIsSee;
-		m_myActualSenseIsHear =! m_myActualSenseIsHear;
+    IEnumerator ChangeSenseTimer()
+    {
+        yield return new WaitForSeconds(m_timerToChangeSense);
+        DoChangeSense();
+    }
 
-		if(m_myActualSenseIsSee){
-			CanISeeCorectly(true);
-			CanHearCorectly(false);
+    void DoChangeSense()
+    {
+        m_myActualSenseIsSee = !m_myActualSenseIsSee;
+        m_myActualSenseIsHear = !m_myActualSenseIsHear;
 
-			m_iHearCorrectly = false;
-		}else if(m_myActualSenseIsHear){
-			CanISeeCorectly(false);
-			CanHearCorectly(true);
+        if (m_myActualSenseIsSee)
+        {
+            CanISeeCorectly(true);
+            CanHearCorectly(false);
 
-			m_iHearCorrectly = true;
-		}
+            m_iHearCorrectly = false;
+        }
+        else if (m_myActualSenseIsHear)
+        {
+            CanISeeCorectly(false);
+            CanHearCorectly(true);
 
-		if(m_fx != null){
-			for(int i = 0, l = m_fx.Count; i < l; ++i){
-				if(m_fx[i] != null){
-					m_fx[i].On_SenseChanged();
-				}
-			}
-		}
+            m_iHearCorrectly = true;
+        }
 
-	}
+        if (m_fx != null)
+        {
+            for (int i = 0, l = m_fx.Count; i < l; ++i)
+            {
+                if (m_fx[i] != null)
+                {
+                    m_fx[i].On_SenseChanged();
+                }
+            }
+        }
+    }
 
 	void CanISeeCorectly(bool b){
 		if(b){
