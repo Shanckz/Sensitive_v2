@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 455021cc7c086fd49a5f5851bacd6e4b
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _asset_mur_cage_lambert1_Normal: {fileID: 2800000, guid: ea2d036ebbd870443b6f3a4ab34736cc,
+      type: 3}
+  - _TextureSample0: {fileID: 2800000, guid: edadef7633991f941af2a9e981cf7e83, type: 3}
+  - _asset_mur_cage_lambert1_Emissive: {fileID: 2800000, guid: 437ac5c29ab1faf4ea1fb9539751830d,
+      type: 3}
+  - _opacity1: {fileID: 2800000, guid: 9edb6c2f3fbb3104ea52873634890606, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
