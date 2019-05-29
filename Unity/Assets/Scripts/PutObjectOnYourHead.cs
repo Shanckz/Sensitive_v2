@@ -71,4 +71,9 @@ public class PutObjectOnYourHead : MonoBehaviour {
         m_senseManager.ChangeSense();
     }
 
+    public void SetMovement(bool canMove)
+    {
+        m_senseManager.SetMovement(canMove);
+    }
+
 }

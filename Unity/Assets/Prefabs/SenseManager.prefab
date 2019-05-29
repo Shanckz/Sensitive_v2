@@ -500,7 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startSense: 0
   m_nextSenseIsSeeIfIStartWithNothingSense: 1
-  m_timerToChangeSense: 0.4
+  m_timerToChangeSense: 0.7
   m_seePostProcessing: {fileID: 1369590743409198}
   m_notSeePostProcessing: {fileID: 1318968051389804}
   m_hearAudioMixer: {fileID: 243401607096050136, guid: d524e19efd0afe14799ad43734c885bc,

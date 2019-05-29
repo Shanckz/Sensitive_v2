@@ -25,6 +25,14 @@ namespace VRTK
     [AddComponentMenu("VRTK/Scripts/Locomotion/VRTK_MoveInPlace")]
     public class VRTK_MoveInPlace : MonoBehaviour
     {
+        SenseManager m_senseManager;
+
+        private void Start()
+        {
+            m_senseManager = SenseManager.Instance;
+            m_senseManager.SetVRTK_MoveInPlace(this);
+        }
+
         /// <summary>
         /// Valid control options
         /// </summary>

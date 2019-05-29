@@ -64,6 +64,8 @@ public class SenseManager : MonoBehaviour {
 
 	List<FX> m_fx = new List<FX>();
 
+    VRTK.VRTK_MoveInPlace m_moveInPlace;
+
 	public void AddFxInList(FX fx){
 		m_fx.Add(fx);
 	}
@@ -101,7 +103,7 @@ public class SenseManager : MonoBehaviour {
 	}
 
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.Space)){
+		if(Input.GetButtonDown("Oculus_CrossPlatform_Button2")){
 			ChangeSense();
 		}
 	}
@@ -193,5 +195,16 @@ public class SenseManager : MonoBehaviour {
 			return m_notHearAudioMixer;
 		}
 	}
+
+    public void SetVRTK_MoveInPlace(VRTK.VRTK_MoveInPlace moveInPlace)
+    {
+        m_moveInPlace = moveInPlace;
+    }
+
+    public void SetMovement(bool canMove)
+    {
+        m_moveInPlace.leftController = canMove;
+        m_moveInPlace.rightController = canMove;
+    }
 
 }
