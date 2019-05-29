@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: cf24666f7fcc3d14fac4be9a7a856f1a
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _asset_sol_defaultPolygonShader_Normal: {fileID: 2800000, guid: 3d55d1e1db7c0794087196897f82fc5b,
+      type: 3}
+  - _asset_sol_defaultPolygonShader_BaseColor: {fileID: 2800000, guid: 8e169e9b79d83d042a4171c44f89a33d,
+      type: 3}
+  - _asset_sol_defaultPolygonShader_Metallic: {fileID: 2800000, guid: 0fba4d19d5c28f749900d789951dc576,
+      type: 3}
+  - _asset_sol_defaultPolygonShader_Roughness: {fileID: 2800000, guid: d5a485a864f13984a9e74c8c31aa4887,
+      type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
