@@ -177,6 +177,8 @@ namespace VRTK
             }
             headsetCollider.isTrigger = true;
 
+            headsetColliderContainer.gameObject.tag = "PlayerNeck";
+
             if (headsetColliderScript == null)
             {
                 GameObject attachTo = (headsetColliderContainer ? headsetColliderContainer : headset.gameObject);

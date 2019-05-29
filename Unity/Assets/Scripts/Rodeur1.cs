@@ -14,13 +14,12 @@ public class Rodeur1 : MonoBehaviour
     [SerializeField]
     private float durationTimer = 2f;
     [SerializeField]
-    protected GameObject player;
-    [SerializeField]
     protected float killDistance = 1.0f;
-    [SerializeField]
-    protected GameObject death;
     protected bool wasInactive;
-    public bool unactive;
+    protected bool wasActive;
+    public static bool unactiveRodeur1;
+    protected Transform posPlayer;
+    protected GameObject footPlayer;
     #endregion
 
     protected enum etat
@@ -33,22 +32,32 @@ public class Rodeur1 : MonoBehaviour
 
     private void Start()
     {
-        unactive = false;
+        unactiveRodeur1 = false;
         active = false;
         Agent = GetComponent<NavMeshAgent>();
         wasInactive = false;
+        wasActive = false;
     }
 
     void Update ()
     {
-        if(wasInactive == false)
+        if (wasActive == false)
+        {
+            if (activation.activeInHierarchy == true)
+            {
+                Debug.Log("WasActive");
+                wasActive = true;
+            }
+        }
+        if(wasInactive == false && wasActive == true)
         {
             if(activation.activeInHierarchy == false)
             {
+                Debug.Log("WasInactive");
                 wasInactive = true;
             }
         }
-        if(unactive == false && Agent.isStopped == false && wasInactive)
+        if(unactiveRodeur1 == false && wasInactive)
         {
             Activation();
             if (active == true)
@@ -56,9 +65,9 @@ public class Rodeur1 : MonoBehaviour
                 SelectEtat();
             }
         }
-        if(unactive)
+        if(unactiveRodeur1)
         {
-            gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
 	}
 
@@ -66,11 +75,9 @@ public class Rodeur1 : MonoBehaviour
     {
         if (active == false)
         {
-            if (activation.activeInHierarchy == true)
-            {
-                active = true;
-                myEtat = etat.firstActivation;
-            }
+            active = true;
+            myEtat = etat.firstActivation;
+            footPlayer = GameObject.FindGameObjectWithTag("PlayerFoot");
         }
     }
 
@@ -88,7 +95,7 @@ public class Rodeur1 : MonoBehaviour
         {
             PoursuitePlayer();
         }
-        if(unactive == true)
+        if(unactiveRodeur1 == true)
         {
             gameObject.SetActive(false);
         }
@@ -98,7 +105,7 @@ public class Rodeur1 : MonoBehaviour
     {
         Agent.Warp(firstPos.transform.position);
         Agent.updateRotation = false;
-        Agent.transform.LookAt(player.transform.position);
+        Agent.transform.LookAt(footPlayer.transform);
         myEtat = etat.attente;
         beginTimer = Time.time;
     }
@@ -114,12 +121,13 @@ public class Rodeur1 : MonoBehaviour
     void PoursuitePlayer()
     {
         Agent.updateRotation = true;
-        Agent.destination = player.transform.position;
+        posPlayer = footPlayer.transform;
+        Agent.SetDestination(posPlayer.position);
         Agent.stoppingDistance = killDistance;
-        if (Agent.hasPath && Agent.remainingDistance < killDistance)
+        if (Agent.hasPath && Agent.remainingDistance < killDistance && DeathManager.deathPlayer == false)
         {
-            Debug.Log(Agent.remainingDistance);
             Debug.Log("Le joueur est mort");
+            DeathManager.deathPlayer = true;
         }
     }
 }

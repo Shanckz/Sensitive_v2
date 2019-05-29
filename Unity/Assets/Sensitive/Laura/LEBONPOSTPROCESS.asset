@@ -1387,7 +1387,11 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
+<<<<<<< HEAD
     value: 0
+=======
+    value: 0.434
+>>>>>>> 0bdbeb106e0f5a1bae7456b6f5f92df286ea7733
   fastMode:
     overrideState: 0
     value: 0
@@ -1575,7 +1579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
