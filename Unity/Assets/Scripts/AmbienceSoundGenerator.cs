@@ -63,7 +63,10 @@ public class AmbienceSoundGenerator : MonoBehaviour {
 		}
 		StartCoroutine(AddSound(0));
 
-		StartCoroutine(WaitNewAdditionalSound(0));
+        if(m_additionalAmbientSounds.m_additionalSound[0] != null)
+        {
+		    StartCoroutine(WaitNewAdditionalSound(0));
+        }
 	}
 
 	IEnumerator AddSound(float waitToAddSound){
@@ -187,7 +190,7 @@ public class AmbienceSoundGenerator : MonoBehaviour {
 	}
 
 	void CalculTimeToEndAdditionalSound(int soundAlea){
-		float aleaTime = Random.Range(m_additionalAmbientSounds.m_additionalSound[soundAlea].m_minTime, m_additionalAmbientSounds.m_additionalSound[soundAlea].m_maxTime);
+         float aleaTime = Random.Range(m_additionalAmbientSounds.m_additionalSound[soundAlea].m_minTime, m_additionalAmbientSounds.m_additionalSound[soundAlea].m_maxTime);
 		// Debug.Log("aleaTime = " + aleaTime);
 		float f = aleaTime - m_additionalAmbientSounds.m_fadeOutTime / 2;
 		// Debug.Log("time to fade out & start new sound = " + f);
