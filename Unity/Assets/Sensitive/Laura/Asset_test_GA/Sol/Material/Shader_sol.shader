@@ -55,10 +55,10 @@ Shader "Shader_sol"
 }
 /*ASEBEGIN
 Version=15401
-918;23;1287;966;1785.418;1170.742;2.414702;True;True
+937;38;947;972;1374.919;1177.986;2.414702;True;True
 Node;AmplifyShaderEditor.SamplerNode;11;-675.8148,89.87165;Float;True;Property;_asset_sol_defaultPolygonShader_Roughness;asset_sol_defaultPolygonShader_Roughness;3;0;Create;True;0;0;False;0;d5a485a864f13984a9e74c8c31aa4887;d5a485a864f13984a9e74c8c31aa4887;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;12;-493.6088,293.2916;Float;False;Property;_Float0;Float 0;4;0;Create;True;0;0;False;0;4.160684;0;0;5;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SamplerNode;3;-649.6884,573.1195;Float;True;Property;_asset_sol_defaultPolygonShader_Normal;asset_sol_defaultPolygonShader_Normal;2;0;Create;True;0;0;False;0;3d55d1e1db7c0794087196897f82fc5b;3d55d1e1db7c0794087196897f82fc5b;True;0;True;bump;Auto;True;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.RangedFloatNode;12;-493.6088,293.2916;Float;False;Property;_Float0;Float 0;4;0;Create;True;0;0;False;0;4.160684;1.7;0;5;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SamplerNode;3;-649.6884,573.1195;Float;True;Property;_asset_sol_defaultPolygonShader_Normal;asset_sol_defaultPolygonShader_Normal;2;0;Create;True;0;0;False;0;3d55d1e1db7c0794087196897f82fc5b;6905b35bd517c5247ac411c39ae6b2bd;True;0;True;bump;Auto;True;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SamplerNode;1;-655.5,-304.5;Float;True;Property;_asset_sol_defaultPolygonShader_BaseColor;asset_sol_defaultPolygonShader_BaseColor;0;0;Create;True;0;0;False;0;8e169e9b79d83d042a4171c44f89a33d;8e169e9b79d83d042a4171c44f89a33d;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SamplerNode;2;-625.5072,-113.9637;Float;True;Property;_asset_sol_defaultPolygonShader_Metallic;asset_sol_defaultPolygonShader_Metallic;1;0;Create;True;0;0;False;0;0fba4d19d5c28f749900d789951dc576;0fba4d19d5c28f749900d789951dc576;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;13;-196.7027,160.3824;Float;True;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
@@ -70,4 +70,4 @@ WireConnection;0;1;3;0
 WireConnection;0;3;2;0
 WireConnection;0;4;13;0
 ASEEND*/
-//CHKSM=F125519ECCAD4045C13DD8AAFF974DA845031CFE
+//CHKSM=84BD38B4E62D6D39A7BE2521ABF1724CB6B6BF4F
