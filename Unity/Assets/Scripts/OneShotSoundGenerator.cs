@@ -26,9 +26,9 @@ public class OneShotSoundGenerator : MonoBehaviour {
     IEnumerator WaitForNewSound()
     {
         float i = NextSound();
-        Debug.Log("New sound in: " + i);
+        // Debug.Log("New sound in: " + i);
         yield return new WaitForSeconds(i);
-        Debug.Log("NEW SOUND");
+        // Debug.Log("NEW SOUND");
         StartSound();
     }
     private void StartSound()
@@ -47,30 +47,30 @@ public class OneShotSoundGenerator : MonoBehaviour {
     private int ChoseSoundType()
     {
         float f = Random.Range(0, 100);
-        Debug.Log("Random.Range(0, 100) = " + f);
+        // Debug.Log("Random.Range(0, 100) = " + f);
         if(f < m_oneShotSounds[0].m_percentage)
         {
-            Debug.Log("return 0");
+            // Debug.Log("return 0");
             return 0;
         }
         else if (f > m_oneShotSounds[0].m_percentage && f < m_oneShotSounds[0].m_percentage + m_oneShotSounds[1].m_percentage)
         {
-            Debug.Log("return 1");
+            // Debug.Log("return 1");
             return 1;
         }
         else if (f > m_oneShotSounds[0].m_percentage + m_oneShotSounds[1].m_percentage)
         {
-            Debug.Log("return 2");
+            // Debug.Log("return 2");
             return 2;
         }
 
-        Debug.Log("return MERDE");
+        // Debug.Log("return MERDE");
         return 0;
     }
     private GameObject ChoseSound(int soundArrayNb)
     {
         int alea = Random.Range(0, m_oneShotSounds[soundArrayNb].m_sounds.Length);
-        Debug.Log("ChoseSound alea = " + alea);
+        // Debug.Log("ChoseSound alea = " + alea);
         return m_oneShotSounds[soundArrayNb].m_sounds[alea];
     }
 #endregion Return function
