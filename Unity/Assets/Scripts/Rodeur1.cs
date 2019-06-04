@@ -30,6 +30,8 @@ public class Rodeur1 : MonoBehaviour
     }
     protected etat myEtat;
 
+    Animator m_animator;
+
     private void Start()
     {
         unactiveRodeur1 = false;
@@ -37,6 +39,7 @@ public class Rodeur1 : MonoBehaviour
         Agent = GetComponent<NavMeshAgent>();
         wasInactive = false;
         wasActive = false;
+        m_animator = GetComponentInChildren<Animator>();
     }
 
     void Update ()
@@ -112,6 +115,7 @@ public class Rodeur1 : MonoBehaviour
 
     void Attente()
     {
+        m_animator.SetTrigger("Awake");
         if (Time.time > beginTimer + durationTimer)
         {
             myEtat = etat.poursuitePlayer;
@@ -120,6 +124,7 @@ public class Rodeur1 : MonoBehaviour
 
     void PoursuitePlayer()
     {
+        m_animator.SetTrigger("Run");
         Agent.updateRotation = true;
         posPlayer = footPlayer.transform;
         Agent.SetDestination(posPlayer.position);
