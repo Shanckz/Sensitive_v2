@@ -217,7 +217,7 @@ public class Errant1 : MonoBehaviour
         if (Agent.hasPath && Vector3.Distance(transform.position, player.transform.position) < killDistance && DeathManager.deathPlayer == false && cibleIsPlayer == true)
         {
             Debug.Log("Le joueur est mort");
-            DeathManager.deathPlayer = true;
+            DeathManager.deathPlayer = true;    
         }
     }
 
