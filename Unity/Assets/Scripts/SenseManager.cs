@@ -103,8 +103,8 @@ public class SenseManager : MonoBehaviour {
 	}
 
 	void Update(){
-        //if(Input.GetButtonDown("Oculus_CrossPlatform_Button2")){
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetButtonDown("Oculus_CrossPlatform_Button2")){
+       // if(Input.GetKeyDown(KeyCode.Space)){
             ChangeSense();
 		}
 	}
