@@ -63,7 +63,7 @@ public class AmbienceSoundGenerator : MonoBehaviour {
 		}
 		StartCoroutine(AddSound(0));
 
-        if(m_additionalAmbientSounds.m_additionalSound[0] != null)
+        if(m_additionalAmbientSounds.m_additionalSound.Length != 0)
         {
 		    StartCoroutine(WaitNewAdditionalSound(0));
         }
