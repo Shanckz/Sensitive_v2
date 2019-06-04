@@ -59,6 +59,7 @@ public class Errant1 : MonoBehaviour
         attenteOK = false;
         haveStartWaitTime = false;
         cibleIsPlayer = false;
+        Agent.stoppingDistance = 0;
     }
 
     void FixedUpdate()
@@ -81,6 +82,8 @@ public class Errant1 : MonoBehaviour
             if (unactiveErrant1 == false)
             {
                 SelectEtat();
+                MortPlayer();
+                Debug.Log(Vector3.Distance(transform.position, player.transform.position));
             }
         }
         if (!frame1skip)
@@ -144,8 +147,8 @@ public class Errant1 : MonoBehaviour
     {
         if(Vector3.Distance(player.transform.position, this.gameObject.transform.position) <= distanceMaxZone1)
         {
-            Debug.DrawLine(transform.position, player.transform.position, Color.green);
             Agent.SetDestination(player.transform.position);
+            cibleIsPlayer = true;
             myEtat = etat.poursuite;
             pointreached = false;
             attenteOK = false;
@@ -155,10 +158,8 @@ public class Errant1 : MonoBehaviour
         {
             if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) <= distanceMaxZone2)
             {
-                Debug.DrawLine(transform.position, player.transform.position, Color.red);
                 if (playerDist >= playerDistBtwTwoFrame)
                 {
-                    Debug.DrawLine(transform.position, player.transform.position, Color.yellow);
                     Agent.SetDestination(player.transform.position);
                     cibleIsPlayer = true;
                     myEtat = etat.poursuite;
@@ -169,7 +170,6 @@ public class Errant1 : MonoBehaviour
             }
             if(ciblePrincipaleErrant1 != null)
             {
-                Debug.DrawLine(transform.position, player.transform.position, Color.magenta);
                 Agent.SetDestination(ciblePrincipaleErrant1.transform.position);
                 cibleIsPlayer = false;
                 myEtat = etat.poursuite;
@@ -177,11 +177,6 @@ public class Errant1 : MonoBehaviour
                 attenteOK = false;
                 haveStartWaitTime = false;
             }
-        }
-        if (Agent.hasPath && Agent.remainingDistance < killDistance && DeathManager.deathPlayer == false)
-        {
-            Debug.Log("Le joueur est mort");
-            DeathManager.deathPlayer = true;
         }
     }
 
@@ -215,5 +210,22 @@ public class Errant1 : MonoBehaviour
                 myEtat = etat.patrouille;
             }
         }
+    }
+
+    void MortPlayer()
+    {
+        if (Agent.hasPath && Vector3.Distance(transform.position, player.transform.position) < killDistance && DeathManager.deathPlayer == false && cibleIsPlayer == true)
+        {
+            Debug.Log("Le joueur est mort");
+            DeathManager.deathPlayer = true;
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, killDistance);
+        Gizmos.DrawWireSphere(transform.position, distanceMaxZone1);
+        Gizmos.DrawWireSphere(transform.position, distanceMaxZone2);
     }
 }
