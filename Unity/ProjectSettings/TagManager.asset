@@ -25,6 +25,7 @@ TagManager:
   - Arm
   - Leg
   - PlayerNeck
+  - Key
   layers:
   - Default
   - TransparentFX

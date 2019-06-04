@@ -17,7 +17,7 @@ public class Errant1 : MonoBehaviour
     protected float distanceMaxZone2 = 100;
     private NavMeshAgent Agent;
     [SerializeField]
-    protected float distanceStopPlayer = 1f;
+    protected float distanceStopPlayer = 1.5f;
     [SerializeField]
     protected GameObject potentialNextWaypoint;
     protected bool pointreached;
@@ -32,6 +32,8 @@ public class Errant1 : MonoBehaviour
     protected float playerDistBtwTwoFrame = 2f;
     protected float playerDist;
     protected bool cibleIsPlayer;
+    [SerializeField]
+    protected float killDistance = 1.5f;
 
 
     protected enum etat
@@ -61,6 +63,12 @@ public class Errant1 : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (player && lastPosPlayer == Vector3.zero)
+        {
+            lastPosPlayer = player.transform.position;
+            cibleIsPlayer = true;
+            myEtat = etat.poursuite;
+        }
         playerDist = Vector3.Distance(lastPosPlayer, player.transform.position);
         lastPosPlayer = player.transform.position;
     }
@@ -136,7 +144,7 @@ public class Errant1 : MonoBehaviour
     {
         if(Vector3.Distance(player.transform.position, this.gameObject.transform.position) <= distanceMaxZone1)
         {
-            Debug.DrawLine(player.transform.position, this.gameObject.transform.position, Color.green);
+            Debug.DrawLine(transform.position, player.transform.position, Color.green);
             Agent.SetDestination(player.transform.position);
             myEtat = etat.poursuite;
             pointreached = false;
@@ -147,30 +155,21 @@ public class Errant1 : MonoBehaviour
         {
             if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) <= distanceMaxZone2)
             {
-                if (lastPosPlayer == Vector3.zero)
+                Debug.DrawLine(transform.position, player.transform.position, Color.red);
+                if (playerDist >= playerDistBtwTwoFrame)
                 {
-                    lastPosPlayer = player.transform.position;
+                    Debug.DrawLine(transform.position, player.transform.position, Color.yellow);
+                    Agent.SetDestination(player.transform.position);
                     cibleIsPlayer = true;
                     myEtat = etat.poursuite;
-                }
-                else
-                {
-                    Debug.DrawLine(player.transform.position, this.gameObject.transform.position, Color.red);
-                    Debug.Log(playerDist);
-                    if (playerDist >= playerDistBtwTwoFrame)
-                    {
-                        Debug.Log("DETECT");
-                        Agent.SetDestination(player.transform.position);
-                        cibleIsPlayer = true;
-                        myEtat = etat.poursuite;
-                        pointreached = false;
-                        attenteOK = false;
-                        haveStartWaitTime = false;
-                    }
+                    pointreached = false;
+                    attenteOK = false;
+                    haveStartWaitTime = false;
                 }
             }
             if(ciblePrincipaleErrant1 != null)
             {
+                Debug.DrawLine(transform.position, player.transform.position, Color.magenta);
                 Agent.SetDestination(ciblePrincipaleErrant1.transform.position);
                 cibleIsPlayer = false;
                 myEtat = etat.poursuite;
@@ -179,7 +178,11 @@ public class Errant1 : MonoBehaviour
                 haveStartWaitTime = false;
             }
         }
-
+        if (Agent.hasPath && Agent.remainingDistance < killDistance && DeathManager.deathPlayer == false)
+        {
+            Debug.Log("Le joueur est mort");
+            DeathManager.deathPlayer = true;
+        }
     }
 
     void Poursuite()
@@ -187,6 +190,10 @@ public class Errant1 : MonoBehaviour
         Agent.stoppingDistance = distanceStopPlayer;
         if (!Agent.hasPath)
         {
+            if(cibleIsPlayer == false && ciblePrincipaleErrant1 != null)
+            {
+                ciblePrincipaleErrant1 = null;
+            }
             pointreached = true;
             if (pointreached == true && attenteOK == false && haveStartWaitTime == false)
             {
