@@ -34,6 +34,9 @@ public class Errant1 : MonoBehaviour
     protected bool cibleIsPlayer;
     [SerializeField]
     protected float killDistance = 1.5f;
+    protected float startTimer;
+    protected float rng;
+    protected bool canSwitch;
 
     protected Animator myAnimator;
 
@@ -62,18 +65,25 @@ public class Errant1 : MonoBehaviour
         cibleIsPlayer = false;
         Agent.stoppingDistance = 0;
         myAnimator = GetComponent<Animator>();
+        startTimer = Time.time;
+        myAnimator.SetInteger("sToI", 1);
+        rng = Random.Range(0.0f, 3.0f);
+        canSwitch = false;
     }
 
     void FixedUpdate()
     {
-        if (player && lastPosPlayer == Vector3.zero)
+        if(unactiveErrant1 == false)
         {
+            if (player && lastPosPlayer == Vector3.zero)
+            {
+                lastPosPlayer = player.transform.position;
+                cibleIsPlayer = true;
+                myEtat = etat.poursuite;
+            }
+            playerDist = Vector3.Distance(lastPosPlayer, player.transform.position);
             lastPosPlayer = player.transform.position;
-            cibleIsPlayer = true;
-            myEtat = etat.poursuite;
         }
-        playerDist = Vector3.Distance(lastPosPlayer, player.transform.position);
-        lastPosPlayer = player.transform.position;
     }
 
     void Update ()
@@ -85,6 +95,34 @@ public class Errant1 : MonoBehaviour
             {
                 SelectEtat();
                 MortPlayer();
+            }
+            if(unactiveErrant1 == true)
+            {
+                if (canSwitch)
+                {
+                    if(myAnimator.GetInteger("sToI") == 1)
+                    {
+                        myAnimator.SetInteger("sToI", 2);
+                        startTimer = Time.time;
+                        rng = Random.Range(1.0f, 10.0f);
+                        canSwitch = false;
+                        return;
+                    }
+                    if (myAnimator.GetInteger("sToI") == 2)
+                    {
+                        myAnimator.SetInteger("sToI", 1);
+                        startTimer = Time.time;
+                        rng = Random.Range(1.0f, 10.0f);
+                        canSwitch = false;
+                    }
+                }
+                if (!canSwitch)
+                {
+                    if(Time.time > startTimer + rng)
+                    {
+                        canSwitch = true;
+                    }
+                }
             }
         }
         if (!frame1skip)
@@ -112,7 +150,7 @@ public class Errant1 : MonoBehaviour
         Agent.stoppingDistance = 0;
         Agent.speed = 2;
         //if (!Agent.hasPath)
-        if(Agent.remainingDistance < 0.4)
+        if(Agent.remainingDistance < 0.35f)
         {
             pointreached = true;
             if (myAnimator.GetBool("idle") == false && myAnimator.GetBool("search") == false)
@@ -221,7 +259,7 @@ public class Errant1 : MonoBehaviour
         Agent.stoppingDistance = distanceStopPlayer;
         Agent.speed = 3;
         //if (Agent.hasPath)
-        if (Agent.remainingDistance >= 0.4)
+        if (Agent.remainingDistance >= 0.35f)
         {
             pointreached = false;
             attenteOK = false;
@@ -232,7 +270,7 @@ public class Errant1 : MonoBehaviour
             myAnimator.SetBool("search", false);
         }
         //if (!Agent.hasPath)
-        if (Agent.remainingDistance < 0.4)
+        if (Agent.remainingDistance < 0.35f)
         {
             if(cibleIsPlayer == false && ciblePrincipaleErrant1 != null)
             {
