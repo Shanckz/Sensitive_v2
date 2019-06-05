@@ -35,6 +35,7 @@ public class Errant1 : MonoBehaviour
     [SerializeField]
     protected float killDistance = 1.5f;
 
+    protected Animator myAnimator;
 
     protected enum etat
     {
@@ -60,6 +61,7 @@ public class Errant1 : MonoBehaviour
         haveStartWaitTime = false;
         cibleIsPlayer = false;
         Agent.stoppingDistance = 0;
+        myAnimator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -83,7 +85,6 @@ public class Errant1 : MonoBehaviour
             {
                 SelectEtat();
                 MortPlayer();
-                Debug.Log(Vector3.Distance(transform.position, player.transform.position));
             }
         }
         if (!frame1skip)
@@ -96,8 +97,8 @@ public class Errant1 : MonoBehaviour
     {
         if(myEtat == etat.patrouille)
         {
-            Patrouille();
             Detection();
+            Patrouille();
         }
         if(myEtat == etat.poursuite)
         {
@@ -109,9 +110,28 @@ public class Errant1 : MonoBehaviour
     void Patrouille()
     {
         Agent.stoppingDistance = 0;
-        if (!Agent.hasPath)
+        Agent.speed = 2;
+        //if (!Agent.hasPath)
+        if(Agent.remainingDistance < 0.3)
         {
             pointreached = true;
+            if (myAnimator.GetBool("idle") == false && myAnimator.GetBool("search") == false)
+            {
+                if (Random.Range(0, 2) == 1)
+                {
+                    myAnimator.SetBool("idle", true);
+                    myAnimator.SetBool("walk", false);
+                    myAnimator.SetBool("run", false);
+                    myAnimator.SetBool("search", false);
+                }
+                else
+                {
+                    myAnimator.SetBool("idle", false);
+                    myAnimator.SetBool("walk", false);
+                    myAnimator.SetBool("run", false);
+                    myAnimator.SetBool("search", true);
+                }
+            }
         }
         if (pointreached == true && attenteOK == false && haveStartWaitTime == false)
         {
@@ -140,6 +160,10 @@ public class Errant1 : MonoBehaviour
                 }
             }
             waypointsUncheck.Remove(potentialNextWaypoint);
+            myAnimator.SetBool("walk", true);
+            myAnimator.SetBool("run", false);
+            myAnimator.SetBool("idle", false);
+            myAnimator.SetBool("search", false);
         }
     }
 
@@ -153,6 +177,10 @@ public class Errant1 : MonoBehaviour
             pointreached = false;
             attenteOK = false;
             haveStartWaitTime = false;
+            myAnimator.SetBool("walk", false);
+            myAnimator.SetBool("run", true);
+            myAnimator.SetBool("idle", false);
+            myAnimator.SetBool("search", false);
         }
         else
         {
@@ -166,6 +194,10 @@ public class Errant1 : MonoBehaviour
                     pointreached = false;
                     attenteOK = false;
                     haveStartWaitTime = false;
+                    myAnimator.SetBool("walk", false);
+                    myAnimator.SetBool("run", true);
+                    myAnimator.SetBool("idle", false);
+                    myAnimator.SetBool("search", false);
                 }
             }
             if(ciblePrincipaleErrant1 != null)
@@ -176,6 +208,10 @@ public class Errant1 : MonoBehaviour
                 pointreached = false;
                 attenteOK = false;
                 haveStartWaitTime = false;
+                myAnimator.SetBool("walk", false);
+                myAnimator.SetBool("run", true);
+                myAnimator.SetBool("idle", false);
+                myAnimator.SetBool("search", false);
             }
         }
     }
@@ -183,7 +219,20 @@ public class Errant1 : MonoBehaviour
     void Poursuite()
     {
         Agent.stoppingDistance = distanceStopPlayer;
-        if (!Agent.hasPath)
+        Agent.speed = 3;
+        //if (Agent.hasPath)
+        if (Agent.remainingDistance >= 0.3)
+        {
+            pointreached = false;
+            attenteOK = false;
+            haveStartWaitTime = false;
+            myAnimator.SetBool("walk", false);
+            myAnimator.SetBool("run", true);
+            myAnimator.SetBool("idle", false);
+            myAnimator.SetBool("search", false);
+        }
+        //if (!Agent.hasPath)
+        if (Agent.remainingDistance < 0.3)
         {
             if(cibleIsPlayer == false && ciblePrincipaleErrant1 != null)
             {
@@ -193,7 +242,25 @@ public class Errant1 : MonoBehaviour
             if (pointreached == true && attenteOK == false && haveStartWaitTime == false)
             {
                 startWaitTime = Time.time;
+                Debug.Log("nope");
                 haveStartWaitTime = true;
+                if (myAnimator.GetBool("idle") == false && myAnimator.GetBool("search") == false)
+                {
+                    if (Random.Range(0, 2) == 1)
+                    {
+                        myAnimator.SetBool("idle", true);
+                        myAnimator.SetBool("walk", false);
+                        myAnimator.SetBool("run", false);
+                        myAnimator.SetBool("search", false);
+                    }
+                    else
+                    {
+                        myAnimator.SetBool("idle", false);
+                        myAnimator.SetBool("walk", false);
+                        myAnimator.SetBool("run", false);
+                        myAnimator.SetBool("search", true);
+                    }
+                }
             }
             if (pointreached == true && attenteOK == false && haveStartWaitTime == true)
             {
@@ -204,9 +271,9 @@ public class Errant1 : MonoBehaviour
             }
             if (pointreached == true && attenteOK == true)
             {
-                pointreached = false;
-                attenteOK = false;
-                haveStartWaitTime = false;
+                //pointreached = false;
+                //attenteOK = false;
+                //haveStartWaitTime = false;
                 myEtat = etat.patrouille;
             }
         }
@@ -223,9 +290,11 @@ public class Errant1 : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, killDistance);
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, distanceMaxZone1);
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, distanceMaxZone2);
     }
 }
