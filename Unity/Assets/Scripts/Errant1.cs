@@ -112,7 +112,7 @@ public class Errant1 : MonoBehaviour
         Agent.stoppingDistance = 0;
         Agent.speed = 2;
         //if (!Agent.hasPath)
-        if(Agent.remainingDistance < 0.3)
+        if(Agent.remainingDistance < 0.4)
         {
             pointreached = true;
             if (myAnimator.GetBool("idle") == false && myAnimator.GetBool("search") == false)
@@ -221,7 +221,7 @@ public class Errant1 : MonoBehaviour
         Agent.stoppingDistance = distanceStopPlayer;
         Agent.speed = 3;
         //if (Agent.hasPath)
-        if (Agent.remainingDistance >= 0.3)
+        if (Agent.remainingDistance >= 0.4)
         {
             pointreached = false;
             attenteOK = false;
@@ -232,7 +232,7 @@ public class Errant1 : MonoBehaviour
             myAnimator.SetBool("search", false);
         }
         //if (!Agent.hasPath)
-        if (Agent.remainingDistance < 0.3)
+        if (Agent.remainingDistance < 0.4)
         {
             if(cibleIsPlayer == false && ciblePrincipaleErrant1 != null)
             {
