@@ -31,9 +31,9 @@ ScriptedImporter:
     preset: " <sbspreset pkgurl=\"pkg://PFA_Cage\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
       uid=\"1178769835\" type=\"8\" value=\"10,10\" />\n  <presetinput identifier=\"$randomseed\"
       uid=\"288395257\" type=\"4\" value=\"7419\" />\n  <presetinput identifier=\"mask_random\"
-      uid=\"753714697\" type=\"0\" value=\"0.863\" />\n  <presetinput identifier=\"PositionsRocks01\"
-      uid=\"753471634\" type=\"0\" value=\"0.822\" />\n  <presetinput identifier=\"PositionRocks02\"
-      uid=\"753473065\" type=\"0\" value=\"0.755\" />\n  <presetinput identifier=\"PositionRocks03\"
+      uid=\"753714697\" type=\"0\" value=\"0.9611\" />\n  <presetinput identifier=\"PositionsRocks01\"
+      uid=\"753471634\" type=\"0\" value=\"0.078\" />\n  <presetinput identifier=\"PositionRocks02\"
+      uid=\"753473065\" type=\"0\" value=\"0.945\" />\n  <presetinput identifier=\"PositionRocks03\"
       uid=\"753474528\" type=\"0\" value=\"0.463\" />\n  <presetinput identifier=\"PositionRocks04\"
       uid=\"753492132\" type=\"0\" value=\"0.112\" />\n </sbspreset>\n"
     shaderName: Standard
