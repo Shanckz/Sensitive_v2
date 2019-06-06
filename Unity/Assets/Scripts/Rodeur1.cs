@@ -20,6 +20,7 @@ public class Rodeur1 : MonoBehaviour
     public static bool unactiveRodeur1;
     protected Transform posPlayer;
     protected GameObject footPlayer;
+
     #endregion
 
     protected enum etat
