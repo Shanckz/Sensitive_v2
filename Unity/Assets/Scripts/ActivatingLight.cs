@@ -18,7 +18,8 @@ public class ActivatingLight : MonoBehaviour
     [Header("Le Tag associé à ton player")]
     public string PlayerTag;
 
-
+    [Header("FX")]
+    [SerializeField] GameObject m_lightOnFx;
 
 
     private void Awake()
@@ -62,6 +63,7 @@ public class ActivatingLight : MonoBehaviour
             {
                 yield return new WaitForSeconds(TempsEntreChaqueLight[i]);
                 LightPrefab[i].SetActive(true);
+                Level.AddFX(m_lightOnFx, LightPrefab[i].transform.position, LightPrefab[i].transform.rotation);
                 MeshLight[i].GetComponent<MeshRenderer>().material = EmissiveLight[i];
 
             }

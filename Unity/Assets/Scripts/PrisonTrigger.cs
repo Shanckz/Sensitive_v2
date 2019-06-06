@@ -24,6 +24,11 @@ public class PrisonTrigger : MonoBehaviour
     public GameObject objectToAble;
     public float TimerObjet;
 
+    [Header("FX")]
+    [SerializeField] GameObject m_screamerFx;
+
+    bool screamerIsPlayed = false;
+
     private void Update()
     {
         if (!_light.activeSelf && actived)
@@ -34,6 +39,12 @@ public class PrisonTrigger : MonoBehaviour
             {
                 _light.SetActive(true);
                 meshLight.GetComponent<MeshRenderer>().material = lightMaterialwithEmissive;
+
+                if (!screamerIsPlayed)
+                {
+                    screamerIsPlayed = true;
+                    Level.AddFX(m_screamerFx, transform.position, transform.rotation);
+                }
             }
             if (offTime > TimerObjet)
             {
