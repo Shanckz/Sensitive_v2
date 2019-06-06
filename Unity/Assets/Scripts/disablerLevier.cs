@@ -5,11 +5,11 @@
     public class disablerLevier : MonoBehaviour
     {
         [SerializeField]
-        protected GameObject[] ArrayGameObjects;
+        protected GameObject[] ArrayGameObjectsAactiver;
 
         void Start()
         {
-            foreach (var gb in ArrayGameObjects)
+            foreach (var gb in ArrayGameObjectsAactiver)
             {
                 gb.SetActive(false);
             }
@@ -19,7 +19,7 @@
         {
             if (levierController.isClosed == true)
             {
-                foreach (var gb in ArrayGameObjects)
+                foreach (var gb in ArrayGameObjectsAactiver)
                 {
                     gb.SetActive(true);
                 }

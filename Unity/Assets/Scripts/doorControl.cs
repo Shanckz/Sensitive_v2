@@ -24,28 +24,30 @@
     ///   > The rotator GameObject must not be at the root level and needs to have the Transform rotation set to `0,0,0`. This is the reason for the container GameObject requirement. Any positioning of the rotator must be set on the parent container GameObject.
     /// </remarks>
     [AddComponentMenu("VRTK/Scripts/Interactables/Controllables/Physics/VRTK_PhysicsRotator")]
-    public class levierController : VRTK_PhysicsRotator
+    public class doorControl : VRTK_PhysicsRotator
     {
-        public static bool isClosed;
+        public static bool doorIsClosed;
         protected float valueAngle;
 
         protected override void Awake()
         {
             base.Awake();
-            isClosed = false;
+            doorIsClosed = false;
         }
 
         protected override void Update()
         {
-            if(doorControl.doorIsClosed == false)
+            if(levierController.isClosed == false)
             {
                 base.Update();
                 valueAngle = GetValue();
-                if (valueAngle <= -80.0f && isClosed == false)
+                if (valueAngle <= 10)
                 {
-                    isClosed = true;
-                    isLocked = true;
-                    Errant1.unactiveErrant1 = false;
+                    doorIsClosed = true;
+                }
+                if(valueAngle >= 20)
+                {
+                    doorIsClosed = false;
                 }
             }
         }

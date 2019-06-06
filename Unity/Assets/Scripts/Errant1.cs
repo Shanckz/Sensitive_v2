@@ -51,7 +51,7 @@ public class Errant1 : MonoBehaviour
 	void Start ()
     {
         frame1skip = false;
-        unactiveErrant1 = false;
+        unactiveErrant1 = true;
         Agent = GetComponent<NavMeshAgent>();
         waypointsUncheck = new List<GameObject>();
         myEtat = etat.patrouille;
