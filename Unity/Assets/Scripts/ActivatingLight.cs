@@ -65,10 +65,8 @@ public class ActivatingLight : MonoBehaviour
                 LightPrefab[i].SetActive(true);
                 Level.AddFX(m_lightOnFx, LightPrefab[i].transform.position, LightPrefab[i].transform.rotation);
                 MeshLight[i].GetComponent<MeshRenderer>().material = EmissiveLight[i];
-
             }
         }
         StopCoroutine(SpawnLightWithTime());
     }
-
 }

@@ -37,18 +37,16 @@
 
         protected override void Update()
         {
-            if(levierController.isClosed == false)
+            base.Update();
+            valueAngle = GetValue();
+            Debug.Log(valueAngle);
+            if (valueAngle <= 10)
             {
-                base.Update();
-                valueAngle = GetValue();
-                if (valueAngle <= 10)
-                {
-                    doorIsClosed = true;
-                }
-                if(valueAngle >= 20)
-                {
-                    doorIsClosed = false;
-                }
+                doorIsClosed = true;
+            }
+            if(valueAngle >= 20)
+            {
+                doorIsClosed = false;
             }
         }
     }

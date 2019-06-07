@@ -7,7 +7,7 @@ public class openDoorKey : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Key") && Errant1.unactiveErrant1 == true)
+        if(other.CompareTag("Key") && Errant1.unactiveErrant1 == false)
         {
             porte.SetActive(false);
         }

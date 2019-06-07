@@ -33,7 +33,6 @@ public class FX : MonoBehaviour {
     {
         ParticleSystem ps = GetComponent<ParticleSystem>();     // On récupère le composant ParticleSystem et on le "met" dans une variable (ps) de type ParticleSystem 
         AudioSource audio = GetComponent<AudioSource>();        // De même pour l'AudioSource
-
         if ((audio != null) && (ps != null))
         {                   // Si le FX possède du son et un effet de particule alors : 
             if (audio.clip.length >= ps.main.duration)
@@ -63,5 +62,4 @@ public class FX : MonoBehaviour {
             }
         }
     }
-
 }
