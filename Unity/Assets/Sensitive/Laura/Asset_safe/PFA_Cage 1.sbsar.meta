@@ -1,0 +1,89 @@
+fileFormatVersion: 2
+guid: 422d652bde8a2d54a8dec034cd4a4a3c
+ScriptedImporter:
+  fileIDToRecycleName:
+    100002: PFA_Cage 1/PFA_Cage 1
+    400002: PFA_Cage 1/PFA_Cage 1/Transform
+    2100000: PFA_Cage
+    2300002: PFA_Cage 1/PFA_Cage 1/MeshRenderer
+    2800000: PFA_Cage - baseColor
+    2800002: PFA_Cage - ambientOcclusion
+    2800004: PFA_Cage - height
+    2800006: PFA_Cage - normal
+    3300002: PFA_Cage 1/PFA_Cage 1/MeshFilter
+    11400000: sbsar
+    11400002: graph0
+    13500002: PFA_Cage 1/PFA_Cage 1/SphereCollider
+    100100002: PFA_Cage 1
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  version: 17
+  mGraphInstanceData:
+  - graphLabel: PFA_Cage
+    prototypeName: PFA_Cage
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://PFA_Cage\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
+      uid=\"1178769835\" type=\"8\" value=\"11,11\" />\n  <presetinput identifier=\"$randomseed\"
+      uid=\"288395257\" type=\"4\" value=\"7419\" />\n  <presetinput identifier=\"mask_random\"
+      uid=\"753714697\" type=\"0\" value=\"0.8241\" />\n  <presetinput identifier=\"PositionRocks03\"
+      uid=\"753474528\" type=\"0\" value=\"1\" />\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: baseColor,ambientOcclusion,height,normal
+    texturePackingList:
+    - outputName: baseColor
+      alphaSource: baseColor
+    - outputName: ambientOcclusion
+      alphaSource: ambientOcclusion
+    - outputName: height
+      alphaSource: height
+    - outputName: roughness
+      alphaSource: roughness
+    - outputName: normal
+      alphaSource: normal
+    textureParameters:
+    - textureName: PFA_Cage - baseColor
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: PFA_Cage - ambientOcclusion
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: PFA_Cage - height
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: PFA_Cage - roughness
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: PFA_Cage - normal
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    colorSpaceList:
+    - outputName: baseColor
+      bLinear: 0
+    - outputName: ambientOcclusion
+      bLinear: 1
+    - outputName: height
+      bLinear: 1
+    - outputName: roughness
+      bLinear: 1
+    - outputName: normal
+      bLinear: 1
+    inputTextureMap: []
+    targetSettingList:
+    - label: 
+      bLockRatio: 1
+      textureWidth: 2048
+      textureHeight: 2048
+      textureFormat: 0
+      bGenerateOnLoad: 1
+    material: {fileID: 2100000, guid: 422d652bde8a2d54a8dec034cd4a4a3c, type: 3}
+    generatedTextures: []
