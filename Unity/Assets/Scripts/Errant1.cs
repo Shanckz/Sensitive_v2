@@ -14,7 +14,7 @@ public class Errant1 : MonoBehaviour
     [SerializeField]
     protected float distanceMaxZone1 = 20;
     [SerializeField]
-    protected float distanceMaxZone2 = 100;
+    public float distanceMaxZone2 = 100;
     private NavMeshAgent Agent;
     [SerializeField]
     protected float distanceStopPlayer = 1.5f;
@@ -39,6 +39,11 @@ public class Errant1 : MonoBehaviour
     protected bool canSwitch;
 
     protected Animator myAnimator;
+    protected AudioSource myAudioSource;
+    [SerializeField]
+    protected AudioClip sonMarche;
+    [SerializeField]
+    protected AudioClip sonIdle;
 
     protected enum etat
     {
@@ -69,6 +74,7 @@ public class Errant1 : MonoBehaviour
         myAnimator.SetInteger("sToI", 1);
         rng = Random.Range(0.0f, 3.0f);
         canSwitch = false;
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -149,12 +155,19 @@ public class Errant1 : MonoBehaviour
     {
         Agent.stoppingDistance = 0;
         Agent.speed = 2;
+        if(myAudioSource.clip != sonMarche && Agent.remainingDistance > 0.35f)
+        {
+            myAudioSource.clip = sonMarche;
+            myAudioSource.loop = true;
+        }
         //if (!Agent.hasPath)
         if(Agent.remainingDistance < 0.35f)
         {
             pointreached = true;
             if (myAnimator.GetBool("idle") == false && myAnimator.GetBool("search") == false)
             {
+                myAudioSource.clip = sonIdle;
+                myAudioSource.loop = false;
                 if (Random.Range(0, 2) == 1)
                 {
                     myAnimator.SetBool("idle", true);
