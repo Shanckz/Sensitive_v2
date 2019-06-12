@@ -68,6 +68,7 @@ public class PutObjectOnYourHead : MonoBehaviour {
 
     public void ChangeSense()
     {
+        m_senseManager.SetCanChangeSense(true);
         m_senseManager.ChangeSense();
     }
 
