@@ -34,7 +34,7 @@ public class OneShotSoundGenerator : MonoBehaviour {
     private void StartSound()
     {
         GameObject objToInstantiate = ChoseSound(ChoseSoundType());
-        Level.AddFX(objToInstantiate, Vector3.zero, Quaternion.identity);
+        Level.AddFX(objToInstantiate, transform.position, transform.rotation);
 
         StartCoroutine(WaitForNewSound());
     }
@@ -48,7 +48,7 @@ public class OneShotSoundGenerator : MonoBehaviour {
     {
         float f = Random.Range(0, 100);
         // Debug.Log("Random.Range(0, 100) = " + f);
-        if(f < m_oneShotSounds[0].m_percentage)
+        if(f <= m_oneShotSounds[0].m_percentage)
         {
             // Debug.Log("return 0");
             return 0;
