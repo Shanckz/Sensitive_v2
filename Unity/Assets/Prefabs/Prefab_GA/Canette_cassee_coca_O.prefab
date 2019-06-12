@@ -144,8 +144,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02698162, y: 0.014539265, z: 0.025632307}
-  m_Center: {x: 0.000019240193, y: 0.0072696325, z: -0.00087337336}
+  m_Size: {x: 0.023395654, y: 0.014539265, z: 0.021745984}
+  m_Center: {x: -0.0003531485, y: 0.0072696325, z: -0.00095635373}
 --- !u!114 &114067361546562708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,7 +174,7 @@ MonoBehaviour:
   ignoredColliders: []
   isGrabbable: 1
   holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 0
+  stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
@@ -212,14 +212,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8afa0b205791c9f4496bf2814aeac078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precisionGrab: 0
-  rightSnapHandle: {fileID: 0}
-  leftSnapHandle: {fileID: 0}
+  precisionGrab: 1
+  rightSnapHandle: {fileID: 4462625263132298}
+  leftSnapHandle: {fileID: 4462625263132298}
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 0.5
   onGrabCollisionDelay: 0
   destroyImmediatelyOnThrow: 1
-  breakForce: 1500
+  breakForce: 5000
 --- !u!114 &114888658704352956
 MonoBehaviour:
   m_ObjectHideFlags: 1

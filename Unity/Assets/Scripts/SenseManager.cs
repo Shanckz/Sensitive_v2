@@ -56,8 +56,9 @@ public class SenseManager : MonoBehaviour {
             return m_notHearAudioMixer;
         }
     }
-#endregion //Encapsulate
+    #endregion //Encapsulate
 
+    bool m_canChangeSense = false;
 	bool m_iHearCorrectly = false;
     bool m_myActualSenseIsSee = false;
     bool m_myActualSenseIsHear = false;
@@ -110,6 +111,10 @@ public class SenseManager : MonoBehaviour {
 	}
 
 	public void ChangeSense(){
+        if (!m_canChangeSense)
+        {
+            return;
+        }
         StartCoroutine(ChangeSenseTimer());
         m_eyesAnimator.SetTrigger("Go");
     }
@@ -206,6 +211,11 @@ public class SenseManager : MonoBehaviour {
     {
         m_moveInPlace.leftController = canMove;
         m_moveInPlace.rightController = canMove;
+    }
+
+    public void SetCanChangeSense(bool bibi)
+    {
+        m_canChangeSense = bibi;
     }
 
 }
