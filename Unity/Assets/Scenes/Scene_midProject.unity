@@ -28202,6 +28202,7 @@ GameObject:
   - component: {fileID: 1492571507}
   - component: {fileID: 1492571506}
   - component: {fileID: 1492571505}
+  - component: {fileID: 1492571508}
   - component: {fileID: 1492571504}
   - component: {fileID: 1492571503}
   - component: {fileID: 1492571502}
@@ -28298,16 +28299,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableTeleport: 0
   targetListPolicy: {fileID: 0}
-  pointerRenderer: {fileID: 1492571504}
-  activationButton: 10
+  pointerRenderer: {fileID: 1492571508}
+  activationButton: 15
   holdButtonToActivate: 1
   activateOnEnable: 0
   activationDelay: 0
-  selectionButton: 10
+  selectionButton: 15
   selectOnPress: 0
   selectionDelay: 0
   selectAfterHoverDuration: 0
-  interactWithObjects: 0
+  interactWithObjects: 1
   grabToPointerTip: 0
   attachedTo: {fileID: 0}
   controllerEvents: {fileID: 0}
@@ -28378,6 +28379,37 @@ Transform:
   m_Father: {fileID: 1254469966}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1492571508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1492571501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc65878c7102524bb8c2bcfbefff497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playareaCursor: {fileID: 0}
+  directionIndicator: {fileID: 0}
+  customRaycast: {fileID: 0}
+  pointerOriginSmoothingSettings:
+    smoothsPosition: 0
+    maxAllowedPerFrameDistanceDifference: 0.003
+    smoothsRotation: 0
+    maxAllowedPerFrameAngleDifference: 1.5
+  validCollisionColor: {r: 1, g: 1, b: 1, a: 1}
+  invalidCollisionColor: {r: 1, g: 1, b: 1, a: 1}
+  tracerVisibility: 0
+  cursorVisibility: 0
+  maximumLength: 2
+  scaleFactor: 0.002
+  cursorScaleMultiplier: 25
+  cursorMatchTargetRotation: 0
+  cursorDistanceRescale: 0
+  maximumCursorScale: {x: Infinity, y: Infinity, z: Infinity}
+  customTracer: {fileID: 0}
+  customCursor: {fileID: 0}
 --- !u!1 &1496990808
 GameObject:
   m_ObjectHideFlags: 0
