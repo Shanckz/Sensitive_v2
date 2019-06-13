@@ -28,6 +28,8 @@
     {
         public static bool isClosed;
         protected float valueAngle;
+        [SerializeField]
+        protected GameObject firstObjectiv;
 
         protected override void Awake()
         {
@@ -52,7 +54,7 @@
                     isClosed = true;
                     isLocked = true;
                     Errant1.unactiveErrant1 = false;
-                    Errant1.ciblePrincipaleErrant1 = null;
+                    Errant1.ciblePrincipaleErrant1 = firstObjectiv;
                 }
             }
         }
