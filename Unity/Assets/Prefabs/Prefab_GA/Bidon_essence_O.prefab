@@ -84,14 +84,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1543661893166364}
-  m_LocalRotation: {x: -0, y: 0.95029104, z: -0, w: 0.3113631}
-  m_LocalPosition: {x: 35.016, y: 3.152, z: 0.212}
+  m_LocalRotation: {x: -0, y: 0.8319819, z: -0, w: 0.55480283}
+  m_LocalPosition: {x: 34.875, y: 3.144, z: -0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4545643838532222}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 112.606, z: 0}
 --- !u!4 &4545643838532222
 Transform:
   m_ObjectHideFlags: 1
@@ -210,14 +210,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8afa0b205791c9f4496bf2814aeac078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precisionGrab: 0
-  rightSnapHandle: {fileID: 0}
-  leftSnapHandle: {fileID: 0}
+  precisionGrab: 1
+  rightSnapHandle: {fileID: 4302079035226158}
+  leftSnapHandle: {fileID: 4302079035226158}
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 0.4
   onGrabCollisionDelay: 0
   destroyImmediatelyOnThrow: 1
-  breakForce: 1500
+  breakForce: 5000
 --- !u!114 &114657304342017084
 MonoBehaviour:
   m_ObjectHideFlags: 1
