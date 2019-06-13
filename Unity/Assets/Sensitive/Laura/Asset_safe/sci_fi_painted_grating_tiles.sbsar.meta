@@ -29,12 +29,13 @@ ScriptedImporter:
     generateAllOutputs: 0
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://sci_fi_painted_grating_tiles\" label=\"\"
-      >\n  <presetinput identifier=\"paint_color\" uid=\"4209164148\" type=\"2\" value=\"0.0812178,0.226415,0.0758277\"
+      >\n  <presetinput identifier=\"paint_color\" uid=\"4209164148\" type=\"2\" value=\"0.214463,0.292453,0.188991\"
       />\n  <presetinput identifier=\"paint_wear_amount\" uid=\"4208340134\" type=\"0\"
-      value=\"0.731\" />\n  <presetinput identifier=\"grating_style\" uid=\"4199240668\"
-      type=\"4\" value=\"4\" />\n  <presetinput identifier=\"contrast\" uid=\"4104936126\"
-      type=\"0\" value=\"-0.202\" />\n  <presetinput identifier=\"hue_shift\" uid=\"2334757870\"
-      type=\"0\" value=\"0.904\" />\n </sbspreset>\n"
+      value=\"0.731\" />\n  <presetinput identifier=\"dirt_amount\" uid=\"4199429020\"
+      type=\"0\" value=\"1\" />\n  <presetinput identifier=\"surface_damage_intensity\"
+      uid=\"4209023806\" type=\"0\" value=\"0.14\" />\n  <presetinput identifier=\"contrast\"
+      uid=\"4104936126\" type=\"0\" value=\"-0.202\" />\n  <presetinput identifier=\"hue_shift\"
+      uid=\"2334757870\" type=\"0\" value=\"0.904\" />\n </sbspreset>\n"
     shaderName: Standard
     outputNames: baseColor,normal,metallic,height,ambientOcclusion
     texturePackingList:

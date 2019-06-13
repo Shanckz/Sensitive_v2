@@ -40,8 +40,8 @@ ScriptedImporter:
     preset: " <sbspreset pkgurl=\"pkg://BrokenTiles\" label=\"\" >\n  <presetinput
       identifier=\"$outputsize\" uid=\"673609843\" type=\"8\" value=\"10,10\" />\n
       \ <presetinput identifier=\"$randomseed\" uid=\"2136239649\" type=\"4\" value=\"3569\"
-      />\n  <presetinput identifier=\"Tiles_X\" uid=\"1608586814\" type=\"4\" value=\"19\"
-      />\n  <presetinput identifier=\"Tiles_Y\" uid=\"1608576510\" type=\"4\" value=\"19\"
+      />\n  <presetinput identifier=\"Tiles_X\" uid=\"1608586814\" type=\"4\" value=\"21\"
+      />\n  <presetinput identifier=\"Tiles_Y\" uid=\"1608576510\" type=\"4\" value=\"22\"
       />\n  <presetinput identifier=\"Tile_EdgeRoundness\" uid=\"1608755687\" type=\"0\"
       value=\"0.01\" />\n  <presetinput identifier=\"Tile_Slope\" uid=\"1608722715\"
       type=\"0\" value=\"0.315\" />\n  <presetinput identifier=\"Tile_MissingTiles\"

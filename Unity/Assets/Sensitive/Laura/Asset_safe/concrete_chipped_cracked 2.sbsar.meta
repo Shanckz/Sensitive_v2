@@ -30,11 +30,14 @@ ScriptedImporter:
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://concrete_chipped_cracked\" label=\"\" >\n
       \ <presetinput identifier=\"$outputsize\" uid=\"3143040238\" type=\"8\" value=\"10,10\"
-      />\n  <presetinput identifier=\"Destroyed_Concrete_Level\" uid=\"3401848553\"
-      type=\"0\" value=\"0.149\" />\n  <presetinput identifier=\"Grunge_Level\" uid=\"3408743065\"
-      type=\"0\" value=\"0.514\" />\n  <presetinput identifier=\"Pits_level\" uid=\"3397774168\"
-      type=\"0\" value=\"0.04\" />\n  <presetinput identifier=\"Crack_Size\" uid=\"3397774217\"
-      type=\"0\" value=\"0.854\" />\n </sbspreset>\n"
+      />\n  <presetinput identifier=\"height_position\" uid=\"3325719362\" type=\"0\"
+      value=\"0.4\" />\n  <presetinput identifier=\"Destroyed_Concrete_Level\" uid=\"3401848553\"
+      type=\"0\" value=\"0.53\" />\n  <presetinput identifier=\"Grunge_Level\" uid=\"3408743065\"
+      type=\"0\" value=\"0.57\" />\n  <presetinput identifier=\"Pits_level\" uid=\"3397774168\"
+      type=\"0\" value=\"0.96\" />\n  <presetinput identifier=\"Crack_Size\" uid=\"3397774217\"
+      type=\"0\" value=\"1\" />\n  <presetinput identifier=\"Glossiness\" uid=\"3421639077\"
+      type=\"0\" value=\"0.74\" />\n  <presetinput identifier=\"Surface_Grime\" uid=\"3397774272\"
+      type=\"0\" value=\"0.64\" />\n </sbspreset>\n"
     shaderName: Standard
     outputNames: baseColor,normal,metallic,ambientOcclusion,height
     texturePackingList:
