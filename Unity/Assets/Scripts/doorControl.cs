@@ -39,7 +39,6 @@
         {
             base.Update();
             valueAngle = GetValue();
-            Debug.Log(valueAngle);
             if (valueAngle <= 10)
             {
                 doorIsClosed = true;

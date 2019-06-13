@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-public class openDoorKey : MonoBehaviour
+public class OpenDoorBoutonBureau : MonoBehaviour
 {
+    public static bool canOpenDoor;
     [SerializeField]
     protected GameObject porte;
     protected bool isLocked;
@@ -11,11 +12,10 @@ public class openDoorKey : MonoBehaviour
     protected Vector3 positionOuverte;
     [SerializeField]
     protected float hauteurPorteOuverte;
-    protected bool keyCheck;
 
     private void Start()
     {
-        keyCheck = false;
+        canOpenDoor = false;
         isLocked = false;
         positionFermee = porte.transform.position;
         positionOuverte = new Vector3(porte.transform.position.x, porte.transform.position.y + hauteurPorteOuverte, porte.transform.position.z);
@@ -24,22 +24,17 @@ public class openDoorKey : MonoBehaviour
 
     private void Update()
     {
-        if (isLocked == false && keyCheck == true)
+        if (canOpenDoor)
         {
-            porte.transform.position = new Vector3(porte.transform.position.x, porte.transform.position.y + vitesse, porte.transform.position.z);
-            if (porte.transform.position.y > positionOuverte.y)
+            if (isLocked == false)
             {
-                porte.transform.position = new Vector3(porte.transform.position.x, positionOuverte.y, porte.transform.position.z);
-                isLocked = true;
+                porte.transform.position = new Vector3(porte.transform.position.x, porte.transform.position.y + vitesse, porte.transform.position.z);
+                if (porte.transform.position.y > positionOuverte.y)
+                {
+                    porte.transform.position = new Vector3(porte.transform.position.x, positionOuverte.y, porte.transform.position.z);
+                    isLocked = true;
+                }
             }
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Key") && Errant1.unactiveErrant1 == false)
-        {
-            keyCheck = true;
         }
     }
 }
