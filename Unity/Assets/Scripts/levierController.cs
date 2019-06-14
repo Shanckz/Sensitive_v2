@@ -39,8 +39,12 @@
 
         protected override void Update()
         {
-            if(doorControl.doorIsClosed == true)
+            if (doorControl.doorIsClosed == true)
             {
+                if(isLocked == false)
+                {
+                    SetValue(0);
+                }
                 isLocked = true;
             }
             if(doorControl.doorIsClosed == false)
@@ -48,11 +52,11 @@
                 base.Update();
                 valueAngle = GetValue();
                 isLocked = false;
-                Debug.Log("angle levier " + valueAngle);
-                if (valueAngle <= -80.0f && isClosed == false)
+                if (valueAngle <= -110.0f && isClosed == false)
                 {
                     isClosed = true;
                     isLocked = true;
+                    openDoorLevier1.levierActived = true;
                     Errant1.unactiveErrant1 = false;
                     Errant1.ciblePrincipaleErrant1 = firstObjectiv;
                 }

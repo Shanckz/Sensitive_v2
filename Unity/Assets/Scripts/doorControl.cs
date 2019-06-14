@@ -26,26 +26,28 @@
     [AddComponentMenu("VRTK/Scripts/Interactables/Controllables/Physics/VRTK_PhysicsRotator")]
     public class doorControl : VRTK_PhysicsRotator
     {
+        [SerializeField]
+        private bool canChangeDoorIsClosed;
         public static bool doorIsClosed;
         protected float valueAngle;
 
         protected override void Awake()
         {
             base.Awake();
-            doorIsClosed = false;
+            doorIsClosed = true;
         }
 
         protected override void Update()
         {
             base.Update();
-            valueAngle = GetValue();
-            if (valueAngle <= 10)
+            if(canChangeDoorIsClosed == true)
             {
-                doorIsClosed = true;
-            }
-            if(valueAngle >= 20)
-            {
-                doorIsClosed = false;
+                valueAngle = GetValue();
+                if (valueAngle >= -10)
+                {
+                    doorIsClosed = true;
+                }
+                else doorIsClosed = false;
             }
         }
     }

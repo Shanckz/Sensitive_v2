@@ -25,7 +25,7 @@ public class GestionCarte : MonoBehaviour
             hs.SetActive(false);
             es.SetActive(true);
         }
-        if(es.activeSelf == true && openDoorKey1.bureauButtonActived == true)
+        if(es.activeSelf == true && openDoorKey1.keyCheck == true)
         {
             es.SetActive(false);
             open.SetActive(true);

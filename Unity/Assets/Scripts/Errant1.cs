@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -293,7 +292,6 @@ public class Errant1 : MonoBehaviour
             if (pointreached == true && attenteOK == false && haveStartWaitTime == false)
             {
                 startWaitTime = Time.time;
-                Debug.Log("nope");
                 haveStartWaitTime = true;
                 if (myAnimator.GetBool("idle") == false && myAnimator.GetBool("search") == false)
                 {
