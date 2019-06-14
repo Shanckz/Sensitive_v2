@@ -2,18 +2,16 @@
 
 public class OpenDoorBoutonBureau : MonoBehaviour
 {
-    public static bool canOpenDoor;
     private Animator myAnimator;
 
     private void Start()
     {
-        canOpenDoor = false;
         myAnimator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (canOpenDoor)
+        if (openDoorKey1.keyCheck)
         {
             myAnimator.SetBool("canOpen", true);
         }

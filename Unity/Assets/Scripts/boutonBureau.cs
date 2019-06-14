@@ -282,7 +282,7 @@
             {
                 SetRigidbodyConstraints(RigidbodyConstraints.FreezeAll);
                 pressedDownBureau = true;
-                OpenDoorBoutonBureau.canOpenDoor = true;
+                Portefin.canOpen = true;
             }
         }
     }
