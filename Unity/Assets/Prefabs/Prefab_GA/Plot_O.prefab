@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173536424055576}
   m_LocalRotation: {x: -0, y: 0.2597661, z: -0, w: 0.9656716}
-  m_LocalPosition: {x: 34.874, y: 2.985, z: 0.117}
+  m_LocalPosition: {x: 47.77366, y: 2.3979187, z: -10.267931}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 4467575173572712}
@@ -172,9 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8afa0b205791c9f4496bf2814aeac078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precisionGrab: 0
-  rightSnapHandle: {fileID: 0}
-  leftSnapHandle: {fileID: 0}
+  precisionGrab: 1
+  rightSnapHandle: {fileID: 4139150298275780}
+  leftSnapHandle: {fileID: 4139150298275780}
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 0.4
   onGrabCollisionDelay: 0

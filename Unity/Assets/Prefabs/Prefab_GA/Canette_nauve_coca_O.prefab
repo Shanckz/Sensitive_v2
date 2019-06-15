@@ -56,9 +56,10 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1051375682644958}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.957928, y: 3.0149, z: -0.03991066}
-  m_LocalScale: {x: 3.3, y: 3.3, z: 3.3}
+  m_LocalRotation: {x: 0.0000000074505797, y: -0.0000001490116, z: 0.0000000027939675,
+    w: 1}
+  m_LocalPosition: {x: 19.861797, y: -0.23724261, z: 15.891515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4587488959017132}
   m_Father: {fileID: 0}
@@ -221,7 +222,7 @@ MonoBehaviour:
   throwMultiplier: 0.5
   onGrabCollisionDelay: 0
   destroyImmediatelyOnThrow: 1
-  breakForce: 5000
+  breakForce: 1500
 --- !u!114 &114922383230896708
 MonoBehaviour:
   m_ObjectHideFlags: 1
