@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1789792249627962}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8666482, y: 0.21957937, z: -0.038431343}
+  m_LocalPosition: {x: 12.8557, y: -16.5548, z: -0.809}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -129,13 +129,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   precisionGrab: 1
-  rightSnapHandle: {fileID: 0}
-  leftSnapHandle: {fileID: 0}
+  rightSnapHandle: {fileID: 4726816744785816}
+  leftSnapHandle: {fileID: 4726816744785816}
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 0.5
   onGrabCollisionDelay: 0
   destroyImmediatelyOnThrow: 1
-  breakForce: 5000
+  breakForce: 1500
 --- !u!114 &114277242374602872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7fb0b782a9eb1140877c2a26bb10ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactSound: {fileID: 0}
+  impactFX: {fileID: 0}
 --- !u!114 &114508591816235780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,8 +180,8 @@ MonoBehaviour:
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
+  grabAttachMechanicScript: {fileID: 114154473635772008}
+  secondaryGrabActionScript: {fileID: 114277242374602872}
   isUsable: 0
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
