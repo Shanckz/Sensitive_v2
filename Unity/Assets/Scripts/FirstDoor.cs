@@ -15,6 +15,9 @@ public class FirstDoor : MonoBehaviour
     [SerializeField]
     protected GameObject LampeAdesactive1;
 
+    public GameObject audio;
+    
+
     protected bool canLockDoor;
     protected bool isLocked;
     protected bool lampUnactive;
@@ -52,6 +55,7 @@ public class FirstDoor : MonoBehaviour
         if (other.CompareTag("PlayerFoot"))
         {
             canLockDoor = true;
+            Level.AddFX(audio, porte.transform.position, Quaternion.identity);
         }
     }
 }

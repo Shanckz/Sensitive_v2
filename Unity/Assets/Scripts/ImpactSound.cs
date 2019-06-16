@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ImpactSound : MonoBehaviour {
 
-    public AudioSource impactSound;
+    public GameObject impactFX;
+
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.relativeVelocity.magnitude > 1)
         {
-            impactSound.Play();
+            Level.AddFX(impactFX, transform.position, transform.rotation);
         }
     }
 }
