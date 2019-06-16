@@ -78,7 +78,7 @@ public class Errant1 : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(unactiveErrant1 == false)
+        if (unactiveErrant1 == false)
         {
             if (player && lastPosPlayer == Vector3.zero)
             {
@@ -86,8 +86,11 @@ public class Errant1 : MonoBehaviour
                 cibleIsPlayer = true;
                 myEtat = etat.poursuite;
             }
-            playerDist = Vector3.Distance(lastPosPlayer, player.transform.position);
-            lastPosPlayer = player.transform.position;
+            if(player != null)
+            {
+                playerDist = Vector3.Distance(lastPosPlayer, player.transform.position);
+                lastPosPlayer = player.transform.position;
+            }
         }
     }
 
